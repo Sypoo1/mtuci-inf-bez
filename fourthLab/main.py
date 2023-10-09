@@ -1,21 +1,27 @@
-A = 17
+# A = 17
+# B = 11
+# C = 256
+# t0 = 172
+# MaxVal = 255
+
+
+A = 9
 B = 11
 C = 256
-t0 = 172
+t0 = 201
 MaxVal = 255
-
 
 def ksumm(summa: str):
     int_summa = 0
     for item in summa:
-        int_summa += int(item)
+        int_summa += ord(item)
     if int_summa <= MaxVal:
         return int_summa
     else:
         return int_summa % (MaxVal+1)
 
 
-def make(summa: str):
+def SummKodBukvOtkr(summa: str):
     t_list = [0] * len(summa)
     x_list = []
     t_list[0] = t0
@@ -31,8 +37,11 @@ def make(summa: str):
 
     return ksumm(y_list)
 
+# examples = ["0123456789", "9876543210", "1000005", "1500000"]
 
-print(ksumm("0123456789"), make("0123456789"))
-print(ksumm("9876543210"), make("9876543210"))
-print(ksumm("1000005"), make("1000005"))
-print(ksumm("1500000"), make("1500000"))
+examples = ["021345"]
+for example in examples:
+    
+    print(f"P = {example}, Ksumm = {ksumm(example)}, SummKodBukvOtkr = {SummKodBukvOtkr(example)}")
+
+
