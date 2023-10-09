@@ -31,12 +31,9 @@ def gamma(string: str):
     x_list = [str_to_bin(item) for item in string]
 
     p = len(string)
-    t_list = []
-    for i in range(0, p):
-        if i == 0:
-            t_list.append((A * t0 + B) % C)
-        else:
-            t_list.append((A * t_list[i-1] + B) % C)
+    t_list = [t0]
+    for i in range(1, p):
+        t_list.append((A * t_list[i-1] + B) % C)
 
     for i in range(0, p):
         t = bin(t_list[i])[2::]
